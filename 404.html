@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Tidak Ditemukan - 404</title>
+    <style>
+        /* Reset dan base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+            color: #f0f0f0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+        
+        /* Container utama */
+        .container {
+            text-align: center;
+            max-width: 800px;
+            padding: 40px;
+            border-radius: 20px;
+            background: rgba(35, 35, 35, 0.8);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Efek cahaya oranye */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 120, 0, 0.1) 0%, rgba(255, 120, 0, 0) 70%);
+            animation: rotate 30s linear infinite;
+            pointer-events: none;
+        }
+        
+        /* Animasi rotasi untuk efek cahaya */
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        /* Judul 404 */
+        .error-code {
+            font-size: 150px;
+            font-weight: 900;
+            color: #ff7700;
+            text-shadow: 0 0 20px rgba(255, 119, 0, 0.5);
+            margin-bottom: 20px;
+            position: relative;
+            animation: pulse 2s infinite;
+        }
+        
+        /* Animasi denyut untuk angka 404 */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                text-shadow: 0 0 20px rgba(255, 119, 0, 0.5);
+            }
+            50% {
+                transform: scale(1.05);
+                text-shadow: 0 0 30px rgba(255, 119, 0, 0.8);
+            }
+            100% {
+                transform: scale(1);
+                text-shadow: 0 0 20px rgba(255, 119, 0, 0.5);
+            }
+        }
+        
+        /* Gambar not.jpg dengan styling */
+        .error-image {
+            max-width: 300px;
+            margin: 30px auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            transform: perspective(800px) rotateY(0deg);
+            transition: transform 0.5s ease;
+            filter: drop-shadow(0 0 15px rgba(255, 120, 0, 0.5));
+        }
+        
+        .error-image:hover {
+            transform: perspective(800px) rotateY(15deg);
+        }
+        
+        /* Pesan error */
+        .error-message {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #f0f0f0;
+        }
+        
+        /* Deskripsi error */
+        .error-description {
+            font-size: 18px;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            color: #ccc;
+        }
+        
+        /* Tombol kembali */
+        .home-button {
+            display: inline-block;
+            padding: 15px 35px;
+            background: linear-gradient(45deg, #ff6600, #ff9900);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 102, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .home-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 102, 0, 0.6);
+        }
+        
+        .home-button:active {
+            transform: translateY(1px);
+        }
+        
+        .home-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .home-button:hover::before {
+            left: 100%;
+        }
+        
+        /* Efek partikel */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(255, 120, 0, 0.6);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+        
+        /* Animasi partikel mengambang */
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100vw) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Responsif untuk perangkat mobile */
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 100px;
+            }
+            
+            .error-message {
+                font-size: 24px;
+            }
+            
+            .error-description {
+                font-size: 16px;
+            }
+            
+            .error-image {
+                max-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="error-code">404</h1>
+        <h2 class="error-message">Oops! Halaman Tidak Ditemukan</h2>
+        <img src="not.png" alt="Halaman tidak ditemukan" class="error-image">
+        <p class="error-description">
+            Maaf, sepertinya halaman yang Anda cari telah hilang dalam kegelapan atau mungkin 
+            tersesat dalam cahaya oranye. Mari kita bawa Anda kembali ke rumah.
+        </p>
+        <a href="/" class="home-button">Kembali ke Beranda</a>
+    </div>
+    
+    <div class="particles" id="particles"></div>
+    
+    <script>
+        // Membuat partikel secara dinamis
+        document.addEventListener('DOMContentLoaded', function() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Properti acak untuk partikel
+                const size = Math.random() * 10 + 2;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const delay = Math.random() * 15;
+                const duration = Math.random() * 10 + 15;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                particle.style.animationDelay = `${delay}s`;
+                particle.style.animationDuration = `${duration}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        });
+    </script>
+</body>
+</html>
