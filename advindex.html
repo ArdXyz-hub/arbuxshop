@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARBUXSHOP - TOKO TERPERCAYA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="arbux.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Grid Background -->
+    <div class="grid-bg"></div>
+    <div class="gradient-overlay"></div>
+    <div class="scanlines"></div>
+
+    <!-- Animated Shapes -->
+    <div class="shapes-container">
+        <div class="shape shape-circle"></div>
+        <div class="shape shape-triangle"></div>
+        <div class="shape shape-square"></div>
+    </div>
+
+    <!-- Floating Particles -->
+    <div id="particles"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo-link">
+                <svg class="logo-svg" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FF5E00;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#00B2FF;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <polygon points="20,2 38,14 38,26 20,38 2,26 2,14" fill="none" stroke="url(#logoGradient)" stroke-width="2"/>
+                    <polygon points="20,8 32,16 32,24 20,32 8,24 8,16" fill="url(#logoGradient)" opacity="0.3"/>
+                    <circle cx="20" cy="20" r="3" fill="url(#logoGradient)"/>
+                </svg>
+                <span class="logo-text">ARBUXSHOP</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="nav-link">Beranda</a></li>
+                <li><a href="../roblox/" class="nav-link">Beli - Robux</a></li>
+                <li><a href="../aplikasi/" class="nav-link">Beli - Aplikasi Premium</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <!-- Game Ads Slider -->
+        <div class="game-slider">
+            <div class="slider-container">
+                <div class="slide active">
+                    <img src="https://files.catbox.moe/aayofg.jpg" alt="Roblox Top Up">
+                    <div class="slide-content">
+                        <h3>ROBLOX TOP UP</h3>
+                        <p>Dapatkan Robux dengan harga terbaik!</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://files.catbox.moe/0p0333.jpg" alt="Mobile Legends">
+                    <div class="slide-content">
+                        <h3>MOBILE LEGENDS</h3>
+                        <p>Diamond ML dengan proses instan!</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://files.catbox.moe/zoogpf.jpg" alt="Free Fire">
+                    <div class="slide-content">
+                        <h3>FREE FIRE</h3>
+                        <p>Top up diamond FF murah dan aman!</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://files.catbox.moe/tzg057.jpg" alt="Genshin Impact">
+                    <div class="slide-content">
+                        <h3>GENSHIN IMPACT</h3>
+                        <p>Genesis crystal dengan bonus extra!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-controls">
+                <button class="slider-prev">❮</button>
+                <div class="slider-dots">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
+                    <span class="dot" data-slide="2"></span>
+                    <span class="dot" data-slide="3"></span>
+                </div>
+                <button class="slider-next">❯</button>
+            </div>
+        </div>
+
+        <div class="hero-content">
+            <div class="text-rotator">
+                <div class="text-set active">
+                    <h1 class="glitch-text" data-text="FUTURE IS NOW">ORDER SEKARANG</h1>
+                    <p class="subtitle">klik garis tiga di kanan atas untuk menu</p>
+                </div>
+            </div>
+
+            <!-- Game Grid 4x4 -->
+            <div class="game-grid-container">
+                <h3 class="game-grid-title">GAME YANG TERSEDIA</h3>
+                <div class="game-grid">
+                    <!-- Row 1 -->
+                    <div class="game-card featured">
+                        <div class="game-card-icon">
+                            <img src="https://files.catbox.moe/2j8k9p.png" alt="Roblox Icon" onerror="this.src='https://via.placeholder.com/60/FF5E00/FFFFFF?text=R'">
+                        </div>
+                        <div class="game-card-name">Roblox</div>
+                        <div class="">
+                            <span class="fire-badge">TERLARIS</span>
+                            <div class="fire-animation">
+                                <div class="fire"></div>
+                                <div class="fire"></div>
+                                <div class="fire"></div>
+                            </div>
+                        </div>
+                        <div class="game-card-button">
+                            Order Sekarang <span class="red-arrow">›</span>
+                        </div>
+                    </div>
+
+                    <div class="game-card">
+                        <div class="game-card-icon">
+                            <img src="https://files.catbox.moe/wu9x9q.png" alt="Mobile Legends Icon" onerror="this.src='https://via.placeholder.com/60/FF0000/FFFFFF?text=ML'">
+                        </div>
+                        <div class="game-card-name">Mobile Legends</div>
+                        <div class="game-card-button">
+                            Order Sekarang <span class="red-arrow">›</span>
+                        </div>
+                    </div>
+
+                    <div class="game-card">
+                        <div class="game-card-icon">
+                            <img src="https://files.catbox.moe/5a3r4b.png" alt="Free Fire Icon" onerror="this.src='https://via.placeholder.com/60/FFD700/000000?text=FF'">
+                        </div>
+                        <div class="game-card-name">Free Fire</div>
+                        <div class="game-card-button">
+                            Order Sekarang <span class="red-arrow">›</span>
+                        </div>
+                    </div>
+
+                    <div class="game-card">
+                        <div class="game-card-icon">
+                            <img src="https://files.catbox.moe/7k5v2c.png" alt="Genshin Impact Icon" onerror="this.src='https://via.placeholder.com/60/00B2FF/FFFFFF?text=GI'">
+                        </div>
+                        <div class="game-card-name">Genshin Impact</div>
+                        <div class="game-card-button">
+                            Order Sekarang <span class="red-arrow">›</span>
+                        </div>
+                    </div>
+
+                    <!-- Row 2 -->
+                    <div class="game-card">
+                        <div class="game-card-icon">
+                            <img src="https://files.catbox.moe/9d7x6m.png" alt="PUBG Mobile Icon" onerror="this.src='https://via.placeholder.com/60/4CAF50/FFFFFF?text=PM'">
+                        </div>
+                        <div class="game-card-name">PUBG Mobile</div>
+                        <div class="game-card-button">
+                            Order Sekarang <span class="red-arrow">›</span>
+                        </div>
+                    </div>
+
+                    <div class="game-card">
+                        <div class="game-card-icon">
+                            <img src="https://files.catbox.moe/3b5v8n.png" alt="Valorant Icon" onerror="this.src='https://via.placeholder.com/60/FF4757/FFFFFF?text=V'">
+                        </div>
+                        <div class="game-card-name">Valorant</div>
+                        <div class="game-card-button">
+                            Order Sekarang <span class="red-arrow">›</span>
+                        </div>
+                    </div>
+
+                    <div class="game-card">
+                        <div class="game-card-icon">
+                            <img src="https://files.catbox.moe/8k2d9p.png" alt="Minecraft Icon" onerror="this.src='https://via.placeholder.com/60/00AA00/FFFFFF?text=MC'">
+                        </div>
+                        <div class="game-card-name">Minecraft</div>
+                        <div class="game-card-button">
+                            Order Sekarang <span class="red-arrow">›</span>
+                        </div>
+                    </div>
+
+                    <div class="game-card">
+                        <div class="game-card-icon">
+                            <img src="https://files.catbox.moe/4j7f2k.png" alt="Call of Duty Icon" onerror="this.src='https://via.placeholder.com/60/FF6B00/FFFFFF?text=COD'">
+                        </div>
+                        <div class="game-card-name">Call of Duty</div>
+                        <div class="game-card-button">
+                            Order Sekarang <span class="red-arrow">›</span>
+                        </div>
+                    </div>
+
+                    <!-- Row 3 -->
+                    <div class="game-card">
+                        <div class="game-card-icon">
+                            <img src="https://files.catbox.moe/1m9d3p.png" alt="Fortnite Icon" onerror="this.src='https://via.placeholder.com/60/8B4513/FFFFFF?text=FN'">
+                        </div>
+                        <div class="game-card-name">Fortnite</div>
+                        <div class="game-card-button">
+                            Order Sekarang <span class="red-arrow">›</span>
+                        </div>
+                    </div>
+
+                    <div class="game-card">
+                        <div class="game-card-icon">
+                            <img src="https://files.catbox.moe/6k3f8m.png" alt="Apex Legends Icon" onerror="this.src='https://via.placeholder.com/60/DC143C/FFFFFF?text=AL'">
+                        </div>
+                        <div class="game-card-name">Apex Legends</div>
+                        <div class="game-card-button">
+                            Order Sekarang <span class="red-arrow">›</span>
+                        </div>
+                    </div>
+
+                    <div class="game-card">
+                        <div class="game-card-icon">
+                            <img src="https://files.catbox.moe/3j8d2n.png" alt="League of Legends Icon" onerror="this.src='https://via.placeholder.com/60/005AFF/FFFFFF?text=LOL'">
+                        </div>
+                        <div class="game-card-name">League of Legends</div>
+                        <div class="game-card-button">
+                            Order Sekarang <span class="red-arrow">›</span>
+                        </div>
+                    </div>
+
+                    <div class="game-card">
+                        <div class="game-card-icon">
+                            <img src="https://files.catbox.moe/9k2f7m.png" alt="Wild Rift Icon" onerror="this.src='https://via.placeholder.com/60/FF9900/FFFFFF?text=WR'">
+                        </div>
+                        <div class="game-card-name">Wild Rift</div>
+                        <div class="game-card-button">
+                            Order Sekarang <span class="red-arrow">›</span>
+                        </div>
+                    </div>
+
+                    <!-- Row 4 -->
+                    <div class="game-card">
+                        <div class="game-card-icon">
+                            <img src="https://files.catbox.moe/5j3d8k.png" alt="Honkai Star Rail Icon" onerror="this.src='https://via.placeholder.com/60/9B59B6/FFFFFF?text=HSR'">
+                        </div>
+                        <div class="game-card-name">Honkai Star Rail</div>
+                        <div class="game-card-button">
+                            Order Sekarang <span class="red-arrow">›</span>
+                        </div>
+                    </div>
+
+                    <div class="game-card">
+                        <div class="game-card-icon">
+                            <img src="https://files.catbox.moe/2k9f7n.png" alt="Clash of Clans Icon" onerror="this.src='https://via.placeholder.com/60/FFA500/FFFFFF?text=COC'">
+                        </div>
+                        <div class="game-card-name">Clash of Clans</div>
+                        <div class="game-card-button">
+                            Order Sekarang <span class="red-arrow">›</span>
+                        </div>
+                    </div>
+
+                    <div class="game-card">
+                        <div class="game-card-icon">
+                            <img src="https://files.catbox.moe/7j4f9k.png" alt="Clash Royale Icon" onerror="this.src='https://via.placeholder.com/60/FFD700/000000?text=CR'">
+                        </div>
+                        <div class="game-card-name">Clash Royale</div>
+                        <div class="game-card-button">
+                            Order Sekarang <span class="red-arrow">›</span>
+                        </div>
+                    </div>
+
+                    <div class="game-card">
+                        <div class="game-card-icon">
+                            <img src="https://files.catbox.moe/4k8f3n.png" alt="Brawl Stars Icon" onerror="this.src='https://via.placeholder.com/60/FF69B4/FFFFFF?text=BS'">
+                        </div>
+                        <div class="game-card-name">Brawl Stars</div>
+                        <div class="game-card-button">
+                            Order Sekarang <span class="red-arrow">›</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section with Tabs -->
+    <section class="features" id="features">
+        <h2 class="section-title"></h2>
+        <div class="features-container">
+            <div class="feature-tabs">
+                <div class="tab-item active" data-tab="performance">
+                    <span class="tab-icon">⚡</span>
+                    <span>Layanan</span>
+                </div>
+            <div class="feature-content">
+                <div class="content-panel active" id="performance">
+                    <h3>Layanan Di Toko Arbuxshop</h3>
+                    <p>Kami sangat menghargai pesan anda, kami akan semaksimal mungkin untuk melayani pelanggan yang terhormat di arbuxshop</p>
+                    <ul class="feature-list">
+                        <li>Jika tidak ada kendala</li>
+                        <li>100% kami respon pesan</li>
+                        <li>Pelayanan cepat jika tidak ada antrian</li>
+                        <li>Kami Pastikan bahwa pelayanan sopan</li>
+                    </ul>
+                </div>
+                <div class="content-panel" id="security">
+                    <h3>Military-Grade Security</h3>
+                    <p>Your data is protected by the most advanced encryption protocols available. Multi-layered security ensures complete protection against cyber threats. You may tell your friends about TemplateMo free css website and how easy it is.</p>
+                    <ul class="feature-list">
+                        <li>256-bit AES encryption</li>
+                        <li>Biometric authentication</li>
+                        <li>Zero-knowledge architecture</li>
+                        <li>Real-time threat detection</li>
+                        <li>Automated security updates</li>
+                    </ul>
+                </div>
+                <div class="content-panel" id="network">
+                    <h3>Global Neural Network</h3>
+                    <p>Connect to our worldwide infrastructure that spans across continents. Seamless integration with existing systems and future-proof architecture.</p>
+                    <ul class="feature-list">
+                        <li>200+ global data centers</li>
+                        <li>Intelligent routing algorithms</li>
+                        <li>Cross-platform compatibility</li>
+                        <li>5G and satellite connectivity</li>
+                        <li>Decentralized architecture</li>
+                    </ul>
+                </div>
+                <div class="content-panel" id="analytics">
+                    <h3>Advanced Analytics</h3>
+                    <p>Harness the power of AI-driven insights to make data-driven decisions. Real-time analytics and predictive modeling at your fingertips.</p>
+                    <ul class="feature-list">
+                        <li>Machine learning algorithms</li>
+                        <li>Predictive analytics</li>
+                        <li>Custom dashboard creation</li>
+                        <li>Real-time data visualization</li>
+                        <li>Automated reporting</li>
+                    </ul>
+                </div>
+                <div class="content-panel" id="integration">
+                    <h3>Seamless Integration</h3>
+                    <p>Connect with thousands of apps and services through our universal API. Built to work with your existing tools and workflows.</p>
+                    <ul class="feature-list">
+                        <li>RESTful API architecture</li>
+                        <li>WebSocket support</li>
+                        <li>SDK for major platforms</li>
+                        <li>One-click integrations</li>
+                        <li>Custom webhook support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2 class="section-title">Tentang Arbuxshop</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>ArbuxShop adalah platform terpercaya yang menyediakan layanan Top Up game online dan Aplikasi Premium dengan harga terbaik, cepat, dan aman. Kami hadir untuk memudahkan para gamers dan pengguna aplikasi digital mendapatkan kebutuhan mereka hanya dalam hitungan detik</p>
+                <p>Dengan ArbuxShop, kamu bisa melakukan top up berbagai game populer dan masih banyak lagi. Semua transaksi diproses secara aman dan terkendali</p>
+                <p>Selain itu, ArbuxShop juga menyediakan layanan Aplikasi Premium dan lain-lain. Nikmati fitur premium aplikasi favoritmu dengan harga terjangkau dan proses aktivasi cepat</p>
+            </div>
+            <div class="about-visual">
+                <div class="about-graphic"></div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+            </div>
+            <p class="copyright">© 2023-2025 ARBUXSHOP. ALL RIGHTS RESERVED</a></p>
+        </div>
+    </footer>
+
+    <!-- Tambahkan CSS untuk slider dan game grid -->
+    <style>
+        .game-slider {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 94, 0, 0.5);
+        }
+
+        .slider-container {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .slide-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .slide-content h3 {
+            margin: 0 0 5px;
+            font-size: 24px;
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 10px rgba(255, 94, 0, 0.8);
+        }
+
+        .slide-content p {
+            margin: 0;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .slider-prev, .slider-next {
+            background: rgba(255, 94, 0, 0.8);
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .slider-prev:hover, .slider-next:hover {
+            background: rgba(255, 94, 0, 1);
+            transform: scale(1.1);
+        }
+
+        .slider-dots {
+            display: flex;
+            gap: 10px;
+            margin: 0 20px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: rgba(255, 94, 0, 1);
+            transform: scale(1.2);
+        }
+
+        /* Game Grid Styles */
+        .game-grid-container {
+            max-width: 1000px;
+            margin: 40px auto 0;
+            padding: 20px;
+        }
+
+        .game-grid-title {
+            text-align: center;
+            color: #FF5E00;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(255, 94, 0, 0.5);
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            justify-items: center;
+        }
+
+        .game-card {
+            width: 180px;
+            height: 200px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 94, 0, 0.5);
+            box-shadow: 0 10px 25px rgba(255, 94, 0, 0.3);
+        }
+
+        .game-card.featured {
+            border: 2px solid #FF5E00;
+            background: linear-gradient(135deg, rgba(255, 94, 0, 0.2), rgba(0, 0, 0, 0.8));
+            animation: featured-pulse 2s infinite;
+        }
+
+        @keyframes featured-pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 94, 0, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 94, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 94, 0, 0); }
+        }
+
+        .game-card-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .game-card-icon img {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+        }
+
+        .game-card-name {
+            color: white;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+        }
+
+        .game-card-badge {
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .fire-badge {
+            background: linear-gradient(45deg, #FF5E00, #FF0000);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 5px;
+            font-size: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+        }
+
+        .fire-animation {
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 2px;
+        }
+
+        .fire {
+            width: 3px;
+            height: 8px;
+            background: #FF5E00;
+            border-radius: 2px;
+            animation: fire-flicker 0.8s infinite alternate;
+        }
+
+        .fire:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .fire:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes fire-flicker {
+            0% { height: 5px; opacity: 0.7; }
+            100% { height: 10px; opacity: 1; }
+        }
+
+        .game-card-button {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .game-card:hover .game-card-button {
+            background: rgba(255, 94, 0, 0.8);
+            border-color: #FF5E00;
+        }
+
+        .red-arrow {
+            color: #FF0000;
+            font-weight: bold;
+            font-size: 16px;
+            margin-left: 5px;
+            text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+        }
+
+        @media (max-width: 1024px) {
+            .game-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .game-slider {
+                margin: 0 20px 30px;
+            }
+            
+            .slide-content h3 {
+                font-size: 20px;
+            }
+            
+            .slide img {
+                height: 150px;
+            }
+
+            .game-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .game-card {
+                width: 160px;
+                height: 180px;
+                padding: 15px;
+            }
+
+            .game-card-icon {
+                width: 50px;
+                height: 50px;
+            }
+
+            .game-card-icon img {
+                width: 35px;
+                height: 35px;
+            }
+
+            .game-card-name {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .game-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .game-card {
+                width: 140px;
+                height: 160px;
+                padding: 12px;
+            }
+
+            .game-card-button {
+                font-size: 10px;
+                padding: 6px 8px;
+            }
+        }
+    </style>
+
+    <script src="arbux.js"></script>
+    
+    <!-- Tambahkan JavaScript untuk slider dan game grid -->
+    <script>
+        // Slider functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const sliderContainer = document.querySelector('.slider-container');
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.dot');
+            const prevBtn = document.querySelector('.slider-prev');
+            const nextBtn = document.querySelector('.slider-next');
+            let currentSlide = 0;
+            let slideInterval;
+
+            function goToSlide(n) {
+                currentSlide = (n + slides.length) % slides.length;
+                sliderContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+                
+                // Update dots
+                dots.forEach(dot => dot.classList.remove('active'));
+                dots[currentSlide].classList.add('active');
+            }
+
+            function nextSlide() {
+                goToSlide(currentSlide + 1);
+            }
+
+            function prevSlide() {
+                goToSlide(currentSlide - 1);
+            }
+
+            function startSlider() {
+                slideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+            }
+
+            function stopSlider() {
+                clearInterval(slideInterval);
+            }
+
+            // Event listeners
+            nextBtn.addEventListener('click', function() {
+                stopSlider();
+                nextSlide();
+                startSlider();
+            });
+
+            prevBtn.addEventListener('click', function() {
+                stopSlider();
+                prevSlide();
+                startSlider();
+            });
+
+            dots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    stopSlider();
+                    goToSlide(parseInt(this.getAttribute('data-slide')));
+                    startSlider();
+                });
+            });
+
+            // Pause slider on hover
+            const slider = document.querySelector('.game-slider');
+            slider.addEventListener('mouseenter', stopSlider);
+            slider.addEventListener('mouseleave', startSlider);
+
+            // Game card click functionality
+            const gameCards = document.querySelectorAll('.game-card');
+            gameCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const gameName = this.querySelector('.game-card-name').textContent;
+                    // Redirect to corresponding game page
+                    window.location.href = `../${gameName.toLowerCase().replace(/\s+/g, '-')}/`;
+                });
+            });
+
+            // Start the slider
+            startSlider();
+        });
+    </script>
+</body>
+</html>
