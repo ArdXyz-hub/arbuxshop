@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arbuxshop - Robux</title>
+    <link rel="icon" href="https://files.catbox.moe/2z02hj.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Menambahkan font dari advindex.html -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Gaya untuk broadcast text iklan */
+        .broadcast-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            background: linear-gradient(90deg, #ff5e00, #ff7b31, #ff5e00);
+            padding: 10px 0;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(255, 94, 0, 0.3);
+        }
+        
+        .broadcast-text {
+            white-space: nowrap;
+            display: inline-block;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+            font-family: 'Orbitron', sans-serif;
+            animation: scrollText 25s linear infinite;
+            padding-left: 100%;
+        }
+        
+        @keyframes scrollText {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        
+        /* Loading Spinner Styles */
+        .loading-spinner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1f2b 0%, #131722 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 5px solid rgba(255, 94, 0, 0.3);
+            border-radius: 50%;
+            border-top-color: #FF5E00;
+            animation: spin 1s ease-in-out infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-spinner p {
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 18px;
+            text-shadow: 0 0 10px rgba(255, 94, 0, 0.8);
+        }
+
+        .loading-spinner.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* Mengganti font-family dengan yang sama seperti advindex.html */
+            font-family: 'Rajdhani', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a1f2b 0%, #131722 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+            /* Mencegah seleksi teks dan gambar */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .logo-container {
+            text-align: center;
+            margin-bottom: 15px;
+            animation: fadeIn 1s ease;
+        }
+        
+        .logo-container img {
+            max-width: 120px;
+            height: 32px;
+            border-radius: 32px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            /* Mencegah drag gambar */
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
+            pointer-events: none;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            animation: fadeIn 1s ease;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            background: linear-gradient(90deg, #ff7b31, #ff5e00, #ff3d00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(255, 94, 0, 0.3);
+            /* Menggunakan font Orbitron untuk judul seperti di advindex.html */
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            color: #a0a0a0;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        
+        .highlight {
+            background: linear-gradient(90deg, #ff7b31, #ff5e00);
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(255, 94, 0, 0.3);
+            animation: pulse 2s infinite;
+        }
+        
+        .highlight p {
+            margin: 0;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .login-method {
+            background: rgba(30, 35, 48, 0.8);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            animation: slideIn 0.8s ease;
+        }
+        
+        .login-method i {
+            font-size: 2rem;
+            margin-right: 15px;
+            color: #ff7b31;
+        }
+        
+        .login-method div {
+            flex: 1;
+        }
+        
+        .login-method h3 {
+            margin-bottom: 5px;
+            color: #ff7b31;
+            /* Menggunakan font Orbitron untuk subjudul */
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 500;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            margin: 25px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ff7b31;
+            color: #ff7b31;
+            /* Menggunakan font Orbitron untuk section title */
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+        }
+        
+        .stats {
+            background: rgba(255, 123, 49, 0.1);
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .sort-options {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 15px;
+        }
+        
+        .sort-options select {
+            background: rgba(30, 35, 48, 0.8);
+            color: white;
+            border: 1px solid #3a3f4b;
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+        
+        .sort-options select:focus {
+            outline: none;
+            border-color: #ff7b31;
+        }
+        
+        .robux-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .robux-item {
+            background: linear-gradient(145deg, #232934, #1a1f2b);
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            border: 2px solid transparent;
+            animation: fadeIn 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .robux-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 94, 0, 0.3);
+            border-color: #ff5e00;
+        }
+        
+        .robux-item.selected {
+            border-color: #ff5e00;
+            background: linear-gradient(145deg, #2a303d, #212631);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 94, 0, 0.3);
+        }
+        
+        .robux-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            background-color: #ff7b31;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+        }
+        
+        .robux-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            /* Mencegah drag gambar */
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
+            pointer-events: none;
+        }
+        
+        /* Overlay untuk mencegah interaksi dengan gambar */
+        .image-protector {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            cursor: pointer;
+        }
+        
+        .robux-amount {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #ff7b31;
+            margin-bottom: 5px;
+            /* Menggunakan font Orbitron untuk jumlah robux */
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+        }
+        
+        .robux-price {
+            color: #a0a0a0;
+            font-size: 0.9rem;
+        }
+        
+        .robux-price span {
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .payment-methods {
+            background: rgba(30, 35, 48, 0.8);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            animation: slideIn 0.8s ease;
+        }
+        
+        .payment-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #ff7b31;
+            /* Menggunakan font Orbitron untuk judul pembayaran */
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 500;
+        }
+        
+        .payment-option {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .payment-option:hover {
+            background: rgba(255, 123, 49, 0.2);
+        }
+        
+        .payment-option.selected {
+            background: rgba(255, 123, 49, 0.3);
+            border: 2px solid #ff5e00;
+        }
+        
+        .payment-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .payment-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            /* Mencegah drag gambar */
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
+            pointer-events: none;
+        }
+        
+        .payment-option div {
+            flex: 1;
+        }
+        
+        .payment-option .name {
+            font-weight: bold;
+            /* Menggunakan font Orbitron untuk nama metode pembayaran */
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 500;
+        }
+        
+        .payment-option .price {
+            color: #a0a0a0;
+            font-size: 0.9rem;
+        }
+        
+        .cheapest {
+            color: #4caf50;
+            font-weight: bold;
+            font-size: 0.8rem;
+            margin-top: 3px;
+        }
+        
+        .view-all {
+            text-align: center;
+            margin: 15px 0 25px;
+        }
+        
+        .view-all button {
+            background: transparent;
+            border: 1px solid #ff7b31;
+            color: #ff7b31;
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .view-all button:hover {
+            background: rgba(255, 123, 49, 0.1);
+        }
+        
+        .account-details {
+            background: rgba(30, 35, 48, 0.8);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            animation: slideIn 0.8s ease;
+        }
+        
+        .account-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #ff7b31;
+            /* Menggunakan font Orbitron untuk judul akun */
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 500;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1px solid #3a3f4b;
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            font-size: 1rem;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #ff7b31;
+        }
+        
+        .guide {
+            color: #a0a0a0;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+        
+        .selected-item {
+            background: rgba(30, 35, 48, 0.8);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            animation: slideIn 0.8s ease;
+            display: none;
+        }
+        
+        .selected-item.active {
+            display: block;
+        }
+        
+        .selected-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #ff7b31;
+            /* Menggunakan font Orbitron untuk judul pilihan */
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 500;
+        }
+        
+        .selected-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .selected-details .label {
+            color: #a0a0a0;
+        }
+        
+        .selected-details .value {
+            font-weight: bold;
+            color: #ff7b31;
+        }
+        
+        .guarantee {
+            text-align: center;
+            margin: 20px 0;
+            color: #a0a0a0;
+            font-size: 0.9rem;
+        }
+        
+        .buy-now {
+            position: sticky;
+            bottom: 20px;
+            background: linear-gradient(90deg, #ff7b31, #ff5e00);
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 5px 25px rgba(255, 94, 0, 0.5);
+            animation: pulse 2s infinite;
+            z-index: 100;
+        }
+        
+        .buy-now .price {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            /* Menggunakan font Orbitron untuk harga */
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+        }
+        
+        .buy-now .description {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        .buy-now button {
+            background: #fff;
+            color: #ff5e00;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            /* Menggunakan font Orbitron untuk tombol */
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+        }
+        
+        .buy-now button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .buy-now button:disabled {
+            background: #cccccc;
+            color: #666666;
+            cursor: not-allowed;
+            transform: scale(1);
+            box-shadow: none;
+        }
+        
+        .pending-notice {
+            text-align: center;
+            margin-top: 30px;
+            padding: 15px;
+            background: rgba(255, 123, 49, 0.1);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #a0a0a0;
+        }
+        
+        /* Gaya untuk gambar Roblox */
+        .roblox-banner {
+            text-align: center;
+            margin: 20px 0;
+            animation: fadeIn 1s ease;
+            position: relative;
+        }
+        
+        .roblox-banner img {
+            max-width: 200px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            /* Mencegah drag gambar */
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
+            pointer-events: none;
+        }
+        
+        .roblox-banner img:hover {
+            transform: scale(1.05);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 123, 49, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 123, 49, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 123, 49, 0); }
+        }
+        
+        @media (max-width: 600px) {
+            .robux-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .roblox-banner img {
+                max-width: 150px;
+            }
+            
+            .logo-container img {
+                max-width: 100px;
+            }
+            
+            .broadcast-text {
+                font-size: 0.9rem;
+                animation: scrollText 20s linear infinite;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="loading-spinner">
+        <div class="spinner"></div>
+        <p>Loading ARBUXSHOP...</p>
+    </div>
+
+    <div class="container">
+        <!-- Broadcast Text Iklan -->
+        <div class="broadcast-container">
+            <div class="broadcast-text">
+                TERIMAKASIH SUDAH MEMBELI DI TOKO ARDAN! • Harga Terjangkau • Pengiriman 100% Aman • Aman & Terpercaya • TERIMAKASIH SUDAH MEMBELI DI TOKO ARDAN!
+            </div>
+        </div>
+        
+        <!-- Logo di atas judul -->
+        <div class="logo-container">
+            <img src="https://files.catbox.moe/eichfc.png" alt="Arbuxshop Logo">
+            <div class="image-protector"></div>
+        </div>
+        
+        <header>
+            <h1>TopUp Game atau Aplikasi Premium?</h1>
+            <p class="subtitle">YA DI ARBUXSHOP LAH!!</p>
+        </header>
+        
+        <div class="highlight">
+            <p>Roblox TopUp<br></p>
+        </div>
+        
+        <div class="login-method">
+            <i class="fas fa-user-circle"></i>
+            <div>
+                <h3>Pengiriman 100% Aman</h3>
+                <p>Waktu Pengiriman Robux/Pending Adalah 1-5 Hari 🎁<strong></strong></p>
+            </div>
+        </div>
+        
+        <!-- Gambar Roblox yang ditambahkan -->
+        <div class="roblox-banner">
+            <img src="https://files.catbox.moe/ysye6m.png" alt="Roblox Logo">
+            <div class="image-protector"></div>
+        </div>
+        
+        <h2 class="section-title">List Robux</h2>
+        <div class="stats">metode username & login</div>
+        
+        <h3>1. Pilih nominal</h3>
+        
+        <!-- Opsi sortir -->
+        <div class="sort-options">
+            <select id="sortOptions">
+                <option value="default">Urutkan: Default</option>
+                <option value="price-low">Harga: Rendah ke Tinggi</option>
+                <option value="price-high">Harga: Tinggi ke Rendah</option>
+                <option value="amount-low">Jumlah: Sedikit ke Banyak</option>
+                <option value="amount-high">Jumlah: Banyak ke Sedikit</option>
+            </select>
+        </div>
+        
+        <div class="robux-grid" id="robuxGrid">
+            <!-- Item Robux dengan proteksi gambar -->
+            <div class="robux-item" data-amount="25 Robux" data-price="Rp5.000" data-amount-value="25" data-price-value="5000">
+                <div class="robux-icon">
+                    <img src="https://files.catbox.moe/hg8low.png" alt="25 Robux">
+                    <div class="image-protector"></div>
+                </div>
+                <div class="robux-amount">25 Robux</div>
+                <div class="robux-price">Harga <span>Rp5.000</span></div>
+            </div>
+            <div class="robux-item" data-amount="50 Robux" data-price="Rp8.000" data-amount-value="50" data-price-value="8000">
+                <div class="robux-icon">
+                    <img src="https://files.catbox.moe/hg8low.png" alt="50 Robux">
+                    <div class="image-protector"></div>
+                </div>
+                <div class="robux-amount">50 Robux</div>
+                <div class="robux-price">Harga <span>Rp8.000</span></div>
+            </div>
+            <div class="robux-item" data-amount="55 Robux" data-price="Rp9.000" data-amount-value="55" data-price-value="9000">
+                <div class="robux-icon">
+                    <img src="https://files.catbox.moe/hg8low.png" alt="55 Robux">
+                    <div class="image-protector"></div>
+                </div>
+                <div class="robux-amount">55 Robux</div>
+                <div class="robux-price">Harga <span>Rp9.000</span></div>
+            </div>
+            <div class="robux-item" data-amount="60 Robux" data-price="Rp12.000" data-amount-value="60" data-price-value="12000">
+                <div class="robux-icon">
+                    <img src="https://files.catbox.moe/hg8low.png" alt="60 Robux">
+                    <div class="image-protector"></div>
+                </div>
+                <div class="robux-amount">60 Robux</div>
+                <div class="robux-price">Harga <span>Rp12.000</span></div>
+            </div>
+            <div class="robux-item" data-amount="80 Robux" data-price="Rp15.000" data-amount-value="80" data-price-value="15000">
+                <div class="robux-icon">
+                    <img src="https://files.catbox.moe/hg8low.png" alt="80 Robux">
+                    <div class="image-protector"></div>
+                </div>
+                <div class="robux-amount">80 Robux</div>
+                <div class="robux-price">Harga <span>Rp15.000</span></div>
+            </div>
+            <div class="robux-item" data-amount="90 Robux" data-price="Rp17.000" data-amount-value="90" data-price-value="17000">
+                <div class="robux-icon">
+                    <img src="https://files.catbox.moe/hg8low.png" alt="90 Robux">
+                    <div class="image-protector"></div>
+                </div>
+                <div class="robux-amount">90 Robux</div>
+                <div class="robux-price">Harga <span>Rp17.000</span></div>
+            </div>
+            <div class="robux-item" data-amount="100 Robux" data-price="Rp20.000" data-amount-value="100" data-price-value="20000">
+                <div class="robux-icon">
+                    <img src="https://files.catbox.moe/hg8low.png" alt="100 Robux">
+                    <div class="image-protector"></div>
+                </div>
+                <div class="robux-amount">100 Robux</div>
+                <div class="robux-price">Harga <span>Rp20.000</span></div>
+            </div>
+            <div class="robux-item" data-amount="150 Robux" data-price="Rp25.000" data-amount-value="150" data-price-value="25000">
+                <div class="robux-icon">
+                    <img src="https://files.catbox.moe/hg8low.png" alt="150 Robux">
+                    <div class="image-protector"></div>
+                </div>
+                <div class="robux-amount">150 Robux</div>
+                <div class="robux-price">Harga <span>Rp25.000</span></div>
+            </div>
+            <div class="robux-item" data-amount="200 Robux" data-price="Rp35.000" data-amount-value="200" data-price-value="35000">
+                <div class="robux-icon">
+                    <img src="https://files.catbox.moe/hg8low.png" alt="200 Robux">
+                    <div class="image-protector"></div>
+                </div>
+                <div class="robux-amount">200 Robux</div>
+                <div class="robux-price">Harga <span>Rp35.000</span></div>
+            </div>
+            <div class="robux-item" data-amount="300 Robux" data-price="Rp42.000" data-amount-value="300" data-price-value="42000">
+                <div class="robux-icon">
+                    <img src="https://files.catbox.moe/hg8low.png" alt="300 Robux">
+                    <div class="image-protector"></div>
+                </div>
+                <div class="robux-amount">300 Robux</div>
+                <div class="robux-price">Harga <span>Rp42.000</span></div>
+            </div>
+            <div class="robux-item" data-amount="500 Robux" data-price="Rp70.000" data-amount-value="500" data-price-value="70000">
+                <div class="robux-icon">
+                    <img src="https://files.catbox.moe/hg8low.png" alt="500 Robux">
+                    <div class="image-protector"></div>
+                </div>
+                <div class="robux-amount">500 Robux</div>
+                <div class="robux-price">Harga <span>Rp70.000</span></div>
+            </div>
+            <div class="robux-item" data-amount="1000 Robux" data-price="Rp135.000" data-amount-value="1000" data-price-value="135000">
+                <div class="robux-icon">
+                    <img src="https://files.catbox.moe/hg8low.png" alt="1000 Robux">
+                    <div class="image-protector"></div>
+                </div>
+                <div class="robux-amount">1000 Robux</div>
+                <div class="robux-price">Harga <span>Rp135.000</span></div>
+            </div>
+        </div>
+        
+        <div class="selected-item" id="selectedItem">
+            <h3 class="selected-title">Pilihan Anda</h3>
+            <div class="selected-details">
+                <span class="label">Paket Robux:</span>
+                <span class="value" id="selectedAmount">-</span>
+            </div>
+            <div class="selected-details">
+                <span class="label">Harga:</span>
+                <span class="value" id="selectedPrice">-</span>
+            </div>
+            <div class="selected-details">
+                <span class="label">Metode Pembayaran:</span>
+                <span class="value" id="selectedPayment">-</span>
+            </div>
+        </div>
+        
+        <div class="payment-methods">
+            <h3>2. Pilih Pembayaran</h3>
+            
+            <div class="payment-option" data-method="Gopay" data-price="Order? Klik Dibawah">
+                <div class="payment-icon">
+                    <img src="https://files.catbox.moe/fgxel3.png" alt="Gopay">
+                    <div class="image-protector"></div>
+                </div>
+                <div>
+                    <div class="name">Gopay</div>
+                    <div class="price">Order? Klik Dibawah</div>
+                    <div class="cheapest">Termurah</div>
+                </div>
+            </div>
+            
+            <div class="payment-option" data-method="Dana" data-price="Order? Klik Dibawah">
+                <div class="payment-icon">
+                    <img src="https://files.catbox.moe/ddrvvq.png" alt="Dana">
+                    <div class="image-protector"></div>
+                </div>
+                <div>
+                    <div class="name">Dana</div>
+                    <div class="price">Order? Klik Dibawah</div>
+                    <div class="cheapest">Termurah</div>
+                </div>
+            </div>
+            
+            <div class="payment-option" data-method="Qris" data-price="Order? Klik Dibawah">
+                <div class="payment-icon">
+                    <img src="https://files.catbox.moe/lvyfg5.png" alt="QRIS">
+                    <div class="image-protector"></div>
+                </div>
+                <div>
+                    <div class="name">QRIS</div>
+                    <div class="price">Order? Klik Dibawah</div>
+                    <div class="cheapest">admin 1% - 2%</div>
+                </div>
+            </div>
+        </div>
+        <div class="account-details">
+            <h3>3. Masukkan Username Roblox</h3>
+            <div class="form-group">
+                <input type="text" id="username" placeholder="Masukkan username Roblox Anda">
+            </div>
+        </div>
+        <div class="buy-now">
+            <div class="price" id="finalPrice">Via WhatsApp</div>
+            <div class="description" id="finalDescription">pilih item terlebih dahulu</div>
+            <button id="buyButton" disabled>Beli sekarang</button>
+        </div>
+        
+        <div class="pending-notice">
+            © Presented by Ardan
+        </div>
+        <div class="guarantee">
+           Semua di lakukan dengan hati hati, jika kesalahan akun atau username saat pengiriman item, kami tidak bertanggung jawab karena itu kelalaian pelanggan, terimakasih telah membeli di ARBUXSHOP
+        </div>
+    </div>
+
+    <script>
+        // Loading functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadingSpinner = document.getElementById('loading-spinner');
+            
+            // Hide loading spinner when all content is loaded
+            window.addEventListener('load', function() {
+                setTimeout(function() {
+                    loadingSpinner.classList.add('hidden');
+                    // Remove from DOM after animation completes
+                    setTimeout(function() {
+                        loadingSpinner.remove();
+                    }, 500);
+                }, 1000); // Minimum display time for better UX
+            });
+            
+            // Fallback: hide spinner after 5 seconds even if load event doesn't fire
+            setTimeout(function() {
+                if (!loadingSpinner.classList.contains('hidden')) {
+                    loadingSpinner.classList.add('hidden');
+                    setTimeout(function() {
+                        loadingSpinner.remove();
+                    }, 500);
+                }
+            }, 5000);
+
+            // Mencegah klik kanan (context menu)
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                return false;
+            });
+            
+            // Mencegah drag-and-drop gambar
+            document.addEventListener('dragstart', function(e) {
+                if (e.target.tagName === 'IMG') {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+            
+            // Mencegah seleksi teks
+            document.addEventListener('selectstart', function(e) {
+                e.preventDefault();
+                return false;
+            });
+            
+            // Mencegah copy
+            document.addEventListener('copy', function(e) {
+                e.preventDefault();
+                return false;
+            });
+            
+            // Mencegah cut
+            document.addEventListener('cut', function(e) {
+                e.preventDefault();
+                return false;
+            });
+            
+            // Mencegah paste
+            document.addEventListener('paste', function(e) {
+                e.preventDefault();
+                return false;
+            });
+
+            // Variables to store selections
+            let selectedRobuxItem = null;
+            let selectedPaymentMethod = null;
+            let username = '';
+            
+            // Robux item selection
+            const robuxItems = document.querySelectorAll('.robux-item');
+            robuxItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    // Remove selected class from all items
+                    robuxItems.forEach(i => i.classList.remove('selected'));
+                    
+                    // Add selected class to clicked item
+                    this.classList.add('selected');
+                    
+                    // Store selected item
+                    selectedRobuxItem = {
+                        amount: this.getAttribute('data-amount'),
+                        price: this.getAttribute('data-price'),
+                        amountValue: this.getAttribute('data-amount-value'),
+                        priceValue: this.getAttribute('data-price-value')
+                    };
+                    
+                    // Update selected item display
+                    document.getElementById('selectedAmount').textContent = selectedRobuxItem.amount;
+                    document.getElementById('selectedPrice').textContent = selectedRobuxItem.price;
+                    document.getElementById('selectedItem').classList.add('active');
+                    
+                    // Update buy now section
+                    updateBuyNowSection();
+                });
+            });
+            
+            // Payment method selection
+            const paymentOptions = document.querySelectorAll('.payment-option');
+            paymentOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove selected class from all options
+                    paymentOptions.forEach(o => o.classList.remove('selected'));
+                    
+                    // Add selected class to clicked option
+                    this.classList.add('selected');
+                    
+                    // Store selected payment method
+                    selectedPaymentMethod = {
+                        method: this.getAttribute('data-method'),
+                        price: this.getAttribute('data-price')
+                    };
+                    
+                    // Update selected item display
+                    document.getElementById('selectedPayment').textContent = selectedPaymentMethod.method;
+                    
+                    // Update buy now section
+                    updateBuyNowSection();
+                });
+            });
+            
+            // Username input
+            const usernameInput = document.getElementById('username');
+            usernameInput.addEventListener('input', function() {
+                username = this.value.trim();
+                updateBuyNowSection();
+            });
+            
+            // Sort functionality
+            const sortOptions = document.getElementById('sortOptions');
+            sortOptions.addEventListener('change', function() {
+                sortRobuxItems(this.value);
+            });
+            
+            // Buy button functionality
+            const buyButton = document.getElementById('buyButton');
+            buyButton.addEventListener('click', function() {
+                if (!selectedRobuxItem || !selectedPaymentMethod || !username) {
+                    alert('Silakan lengkapi semua data terlebih dahulu!');
+                    return;
+                }
+                
+                // Format pesan WhatsApp
+                const message = `Halo, saya ingin membeli ${selectedRobuxItem.amount} dengan harga ${selectedRobuxItem.price} via ${selectedPaymentMethod.method}. Username Roblox saya: ${username}`;
+                const encodedMessage = encodeURIComponent(message);
+                const whatsappURL = `https://wa.me/6285156331747?text=${encodedMessage}`;
+                
+                // Redirect ke WhatsApp
+                window.open(whatsappURL, '_blank');
+            });
+            
+            // Function to update buy now section
+            function updateBuyNowSection() {
+                const finalPrice = document.getElementById('finalPrice');
+                const finalDescription = document.getElementById('finalDescription');
+                
+                if (selectedRobuxItem && selectedPaymentMethod && username) {
+                    finalPrice.textContent = selectedRobuxItem.price;
+                    finalDescription.textContent = `${selectedRobuxItem.amount} via ${selectedPaymentMethod.method}`;
+                    buyButton.disabled = false;
+                } else {
+                    finalPrice.textContent = 'Via WhatsApp';
+                    finalDescription.textContent = 'pilih item terlebih dahulu';
+                    buyButton.disabled = true;
+                }
+            }
+            
+            // Function to sort robux items
+            function sortRobuxItems(sortBy) {
+                const grid = document.getElementById('robuxGrid');
+                const items = Array.from(grid.querySelectorAll('.robux-item'));
+                
+                items.sort((a, b) => {
+                    const aAmount = parseInt(a.getAttribute('data-amount-value'));
+                    const bAmount = parseInt(b.getAttribute('data-amount-value'));
+                    const aPrice = parseInt(a.getAttribute('data-price-value'));
+                    const bPrice = parseInt(b.getAttribute('data-price-value'));
+                    
+                    switch(sortBy) {
+                        case 'price-low':
+                            return aPrice - bPrice;
+                        case 'price-high':
+                            return bPrice - aPrice;
+                        case 'amount-low':
+                            return aAmount - bAmount;
+                        case 'amount-high':
+                            return bAmount - aAmount;
+                        default:
+                            return 0; // Default order (as in HTML)
+                    }
+                });
+                
+                // Clear grid
+                while (grid.firstChild) {
+                    grid.removeChild(grid.firstChild);
+                }
+                
+                // Append sorted items
+                items.forEach(item => {
+                    grid.appendChild(item);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
